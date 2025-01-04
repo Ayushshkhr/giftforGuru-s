@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-scripts": "^3.4.4",
+    "web-vitals": "^4.2.4"
+  }
+}

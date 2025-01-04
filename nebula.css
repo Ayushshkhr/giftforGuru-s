@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(120deg, #0f2027, #203a43, #2c5364); /* Deep space colors */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 0, 150, 0.3) 0%, transparent 70%),
+        radial-gradient(circle, rgba(0, 150, 255, 0.2) 0%, transparent 80%);
+    animation: nebulaMove 20s linear infinite;
+    z-index: -2; /* Ensure it's behind the main content */
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 3px 3px, 1.5px 1.5px; /* Two layers of stars */
+    animation: starsTwinkle 3s infinite alternate;
+    z-index: -1; /* Stars on top of the nebula */
+}
+
+/* Nebula animation */
+@keyframes nebulaMove {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-60%, -60%) scale(1.5);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Stars twinkling effect */
+@keyframes starsTwinkle {
+    0% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
